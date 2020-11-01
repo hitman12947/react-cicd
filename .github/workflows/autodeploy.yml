@@ -5,7 +5,8 @@ on:
             - master
 jobs:
     build-and-deploy:
-        runs-on: ubuntu-latest
+        # runs-on: ubuntu-latest
+        runs-on: self-hosted
         steps:
             - name: Checkout 🛎️
               uses: actions/checkout@v2.3.1 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
@@ -17,10 +18,10 @@ jobs:
                   npm install
                   npm run build
 
-            - name: Deploy 🚀
-              uses: JamesIves/github-pages-deploy-action@3.7.1
-              with:
-                  GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}
-                  BRANCH: gh-pages # The branch the action should deploy to.
-                  FOLDER: build # The folder the action should deploy.
-                  CLEAN: true # Automatically remove deleted files from the deploy branch
+            # - name: Deploy 🚀
+            #   uses: JamesIves/github-pages-deploy-action@3.7.1
+            #   with:
+            #       GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}
+            #       BRANCH: gh-pages # The branch the action should deploy to.
+            #       FOLDER: build # The folder the action should deploy.
+            #       CLEAN: true # Automatically remove deleted files from the deploy branch
